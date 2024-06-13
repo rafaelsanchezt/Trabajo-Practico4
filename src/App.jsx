@@ -9,7 +9,14 @@ const App = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(data => {
-        setTodoArray(data);
+        // Adaptar el formato de los datos de la API al formato esperado
+        const adaptedData = data.map(todo => ({
+          titulo: todo.title,
+          descripcion: todo.title, // Puedes cambiar esto según lo que quieras mostrar como descripción
+          isComplete: todo.completed,
+          id: todo.id
+        }));
+        setTodoArray(adaptedData);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -116,6 +123,8 @@ const App = () => {
     </>
   );
 }
+
+export default App;
 
 export default App;
 
