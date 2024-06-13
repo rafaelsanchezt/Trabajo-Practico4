@@ -9,10 +9,10 @@ const App = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(data => {
-        // Adaptar el formato de los datos de la API al formato esperado
+
         const adaptedData = data.map(todo => ({
           titulo: todo.title,
-          descripcion: todo.title, // Puedes cambiar esto según lo que quieras mostrar como descripción
+          descripcion: todo.title, 
           isComplete: todo.completed,
           id: todo.id
         }));
